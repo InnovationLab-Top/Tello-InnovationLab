@@ -3,6 +3,8 @@ activate () {
     . $PWD/venv/bin/activate
 }
 activate
+sudo apt install libportaudio2 
+pip install cython
 pip install deeppavlov
 python -m deeppavlov install asr_tts
 python -m deeppavlov download asr_tts
