@@ -1,1 +1,1 @@
-# DJI_Tello_AI
+# Project for Tello applications
