@@ -39,21 +39,26 @@ wid = None
 date_fmt = '%Y-%m-%d_%H%M%S'
 
 # Load a sample picture and learn how to recognize it.
-obama_image = face_recognition.load_image_file("pics/obama.jpg")
-obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
-
-# Load a second sample picture and learn how to recognize it.
 giorgio_image = face_recognition.load_image_file("pics/giorgio.jpg")
 giorgio_face_encoding = face_recognition.face_encodings(giorgio_image)[0]
 
+benon_image = face_recognition.load_image_file("pics/Benon 1.jpg")
+benon_face_encoding = face_recognition.face_encodings(giorgio_image)[0]
+
+cyril_image = face_recognition.load_image_file("pics/Cyril 1.jpg")
+cyril_face_encoding = face_recognition.face_encodings(giorgio_image)[0]
+
 # Create arrays of known face encodings and their names
 known_face_encodings = [
-    obama_face_encoding,
-    giorgio_face_encoding
+    giorgio_face_encoding,
+    benon_face_encoding,
+    cyril_face_encoding
 ]
+
 known_face_names = [
-    "Barack Obama",
-    "Er Zanna"
+    "Giorgio",
+    "Welcome mr. Benon",
+    "Welcome mr. Cyril"
 ]
 
 
@@ -107,7 +112,7 @@ def toggle_zoom(drone, speed):
     # Video mode is harder because then we need to abandon the 16:9 display size
     # if we want to put the HUD next to the video.
     if speed == 0:
-        return
+        returncyril_face_encoding
     drone.set_video_mode(not drone.zoom)
     pygame.display.get_surface().fill((0,0,0))
     pygame.display.flip()

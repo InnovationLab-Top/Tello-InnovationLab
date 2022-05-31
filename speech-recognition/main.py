@@ -20,7 +20,7 @@ sending_command_thread = threading.Thread(target=disable_autolanding)
 sending_command_thread.daemon = True
 sending_command_thread.start()
 
-commands = ["takeoff", "land", "upward", "downward", "forward", "backward", "right", "left", "clockwise", "counterclockwise"]
+commands = ["takeoff", "land", "upward", "downward", "forward", "backward", "right", "left", "clockwise", "counterclockwise", "flipright", "flipleft", "flipbackward", "flipforward"]
 THRESHOLD = 5
 again = True
 while again:
@@ -38,67 +38,87 @@ while again:
     if ( (command != '') and (best_distance <= THRESHOLD) ):
         if (best_string == "takeoff"):
             # TAKE OFF
-            replies.takeoff()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            #replies.takeoff()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.takeoff()
         
         elif (best_string == "land"):
             # LAND
-            replies.land()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself
+            #replies.land()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself
             tello.land()
         
         elif (best_string == "upward"):
             # MOVE UP choosing a distance between 0 cm and 100 cm
-            replies.move_up()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            #replies.move_up()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.move_up(0.4)
         
         elif (best_string == "downward"):
             # MOVE DOWN choosing an intensity between 0 and 100 (with "100" corresponding to 30 metres?)
-            replies.move_down()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself
+            #replies.move_down()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself
             tello.move_down(0.4)
 
         elif (best_string == "forward"):
             # MOVE FORWARD choosing an intensity between 0 and 100 (with "100" corresponding to 30 metres?)
-            replies.move_forward()  # the system communicates the command under execution
+            #replies.move_forward()  # the system communicates the command under execution
             time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.move_forward(0.4)
 
         elif (best_string == "backward"):
             # MOVE BACKWARD choosing an intensity between 0 and 100 (with "100" corresponding to 30 metres?)
-            replies.move_backward()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            #replies.move_backward()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.move_backward(0.4)
 
         elif (best_string == "right"):
             # MOVE RIGHT choosing an intensity between 0 and 100 (with "100" corresponding to 30 metres?)
-            replies.move_right()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            #replies.move_right()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.move_right(0.4)
 
         elif (best_string == "left"):
             # MOVE LEFT choosing an intensity between 0 and 100 (with "100" corresponding to 30 metres?)
-            replies.move_left()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            #replies.move_left()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.move_left(0.4)
 
         elif (best_string == "clockwise"):  # "clock wise" because our speech-to-text module writes it like this
             # ROTATE CLOCKWISE choosing an intensity between 0 and 100 (with "100" corresponding to 360° ?)
-            replies.rotate_clockwise()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            #replies.rotate_clockwise()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.rotate_cw(360)
 
         elif (best_string == "counterclockwise"):  # "counter clock wise" because our speech-to-text module writes it like this
             # ROTATE COUNTER-CLOCKWISE choosing an intensity between 0 and 100 (with "100" corresponding to 360° ?)
-            replies.rotate_counter_clockwise()  # the system communicates the command under execution
-            time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            #replies.rotate_counter_clockwise()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
             tello.rotate_ccw(360)
-
+        elif (best_string == "flipright"):  # "counter clock wise" because our speech-to-text module writes it like this
+            # ROTATE COUNTER-CLOCKWISE choosing an intensity between 0 and 100 (with "100" corresponding to 360° ?)
+            #replies.rotate_counter_clockwise()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            tello.flip("r")
+        elif (best_string == "flipleft"):  # "counter clock wise" because our speech-to-text module writes it like this
+            # ROTATE COUNTER-CLOCKWISE choosing an intensity between 0 and 100 (with "100" corresponding to 360° ?)
+            #replies.rotate_counter_clockwise()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            tello.flip("l")
+        elif (best_string == "flipbackward"):  # "counter clock wise" because our speech-to-text module writes it like this
+            # ROTATE COUNTER-CLOCKWISE choosing an intensity between 0 and 100 (with "100" corresponding to 360° ?)
+            #replies.rotate_counter_clockwise()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            tello.flip("b")
+        elif (best_string == "flipforward"):  # "counter clock wise" because our speech-to-text module writes it like this
+            # ROTATE COUNTER-CLOCKWISE choosing an intensity between 0 and 100 (with "100" corresponding to 360° ?)
+            #replies.rotate_counter_clockwise()  # the system communicates the command under execution
+            #time.sleep(4)  # latency between the communication of the command under execution and the execution itself        
+            tello.flip("f")    
     else:
+        pass
         # WRONG COMMAND
-        replies.wrong_command()  # the system communicates the command under execution
+        #replies.wrong_command()  # the system communicates the command under execution
     
     choice = input("Insert y to continue, n to stop. ")
     if (choice == 'n'):

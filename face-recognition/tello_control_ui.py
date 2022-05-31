@@ -13,22 +13,83 @@ import face_recognition
 import numpy as np
 
 # Load a sample picture and learn how to recognize it.
-obama_image = face_recognition.load_image_file("pics/obama.jpg")
-obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
-
-# Load a second sample picture and learn how to recognize it.
 giorgio_image = face_recognition.load_image_file("pics/giorgio.jpg")
 giorgio_face_encoding = face_recognition.face_encodings(giorgio_image)[0]
 
+benon_image = face_recognition.load_image_file("pics/Benon 1.jpg")
+benon_face_encoding = face_recognition.face_encodings(benon_image)[0]
+
+cyril_image = face_recognition.load_image_file("pics/Cyril 1.jpg")
+cyril_face_encoding = face_recognition.face_encodings(cyril_image)[0]
+
+frikha_image = face_recognition.load_image_file("pics/Frikha 1.jpg")
+frikha_face_encoding = face_recognition.face_encodings(frikha_image)[0]
+
+ganem_image = face_recognition.load_image_file("pics/Ganem 1.jpg")
+ganem_face_encoding = face_recognition.face_encodings(ganem_image)[0]
+
+maufferon_image = face_recognition.load_image_file("pics/Maufferon 3.jpg")
+maufferon_face_encoding = face_recognition.face_encodings(maufferon_image)[0]
+
+pichery_image = face_recognition.load_image_file("pics/Pichery 1.jpg")
+pichery_face_encoding = face_recognition.face_encodings(pichery_image)[0]
+
+pichou_image = face_recognition.load_image_file("pics/Pichou 1.jpg")
+pichou_face_encoding = face_recognition.face_encodings(pichou_image)[0]
+
+pouch_image = face_recognition.load_image_file("pics/Pouch 1.jpg")
+pouch_face_encoding = face_recognition.face_encodings(pouch_image)[0]
+
+massimo_image = face_recognition.load_image_file("pics/Massimo.jpg")
+massimo_face_encoding = face_recognition.face_encodings(massimo_image)[0]
+
+patrycja_image = face_recognition.load_image_file("pics/Patrycja 1.jpg")
+patrycja_face_encoding = face_recognition.face_encodings(patrycja_image)[0]
+
+eduardo_image = face_recognition.load_image_file("pics/Eduardo 1.jpg")
+eduardo_face_encoding = face_recognition.face_encodings(eduardo_image)[0]
+
+franco_image = face_recognition.load_image_file("pics/Franco 1.jpg")
+franco_face_encoding = face_recognition.face_encodings(franco_image)[0]
+
+cosmo_image = face_recognition.load_image_file("pics/Cosmo 1.jpg")
+cosmo_face_encoding = face_recognition.face_encodings(cosmo_image)[0]
+
 # Create arrays of known face encodings and their names
 known_face_encodings = [
-    obama_face_encoding,
-    giorgio_face_encoding
+    giorgio_face_encoding,
+    benon_face_encoding,
+    cyril_face_encoding,
+    frikha_face_encoding,
+    ganem_face_encoding,
+    maufferon_face_encoding,
+    pichery_face_encoding,
+    pichou_face_encoding,
+    pouch_face_encoding,
+    massimo_face_encoding,
+    patrycja_face_encoding,
+    eduardo_face_encoding,
+    franco_face_encoding,
+    cosmo_face_encoding
 ]
+
 known_face_names = [
-    "Barack Obama",
-    "Er Zanna"
+    "Welcome mr. Giorgio",
+    "Welcome mr. Benon",
+    "Welcome mr. Cyril",
+    "Welcome mr. Frikha",
+    "Welcome mr. Ganem",
+    "Welcome mr. Maufferon",
+    "Welcome mrs. Pichery",
+    "Welcome mr. Pichou",
+    "Welcome mr. Pouch",
+    "Welcome mr. Massimo",
+    "Welcome mrs. Patrycja",
+    "Welcome mr. Eduardo",
+    "Welcome mr. Franco",
+    "Welcome mr. Cosmo"
 ]
+
 
 # Initialize some variables
 face_locations = []
